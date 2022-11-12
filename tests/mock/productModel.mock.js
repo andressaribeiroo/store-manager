@@ -9,7 +9,7 @@ const productsMock = [
   },
   {
     id: 3,
-    name: 'Escudo do Capitão América'
+    name: 'Escudo do Capitão América'
   }
 ];
 

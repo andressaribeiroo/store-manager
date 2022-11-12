@@ -11,7 +11,13 @@ async function getById(id) {
   return { message: 'Product not found' };
 }
 
+async function insertProduct(name) {
+  const response = await productsModel.insert(name);
+  return { id: response, name };
+}
+
 module.exports = {
   getAll,
   getById,
+  insertProduct,
 };
