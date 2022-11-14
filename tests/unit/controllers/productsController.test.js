@@ -9,7 +9,7 @@ const productsService  = require('../../../src/services/productsServices');
 const productsController = require('../../../src/controllers/productsController');
 const productsMock = require('../../mock/productModel.mock');
 
-describe('Verifica a camada Products Controller', function () {
+describe('Testa a camada Products Controller', function () {
   
      it('Busca por todos os produtos', async function () {
       const req = {};
