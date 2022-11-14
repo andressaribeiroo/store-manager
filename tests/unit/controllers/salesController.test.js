@@ -36,7 +36,7 @@ describe('Testa a camada SalesController', function () {
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
 
-      sinon.stub(salesController, 'getById').resolves(salesMock);
+      sinon.stub(salesService, 'getById').resolves(salesMock);
 
       await salesController.getById(req, res);
 
@@ -64,7 +64,7 @@ describe('Testa a camada SalesController', function () {
       res.status = sinon.stub().returns(res);
       res.json = sinon.stub().returns();
 
-      sinon.stub(salesService, 'postSale').resolves(insertSaleId);
+      sinon.stub(salesService, 'postSale').resolves(response);
 
       await salesController.postSale(req, res);
 
