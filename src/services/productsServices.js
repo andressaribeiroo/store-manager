@@ -16,7 +16,7 @@ async function insertProduct(name) {
   return { id: response, name };
 }
 
-const updateProduct = async (name, saleId) => {
+async function updateProduct(name, saleId) {
   const product = await productsModel.getById(saleId);
   if (!product) return { message: 'Product not found' };
   await productsModel.updateProduct(name, saleId);
@@ -24,11 +24,18 @@ const updateProduct = async (name, saleId) => {
     name,
     id: saleId,
   };
-};
+}
+
+async function deleteProduct(id) {
+  const product = await productsModel.getById(id);
+  if (!product) return { message: 'Product not found' };
+  await productsModel.deleteProduct(id);
+}
 
 module.exports = {
   getAll,
   getById,
   insertProduct,
   updateProduct,
+  deleteProduct,
 };

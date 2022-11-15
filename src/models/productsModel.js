@@ -32,9 +32,16 @@ async function updateProduct(name, id) {
   [name, id]);
 }
 
+async function deleteProduct(id) {
+  await connection.execute(`DELETE FROM products
+  WHERE id = ?;`,
+  [id]);
+}
+
 module.exports = {
   getAll,
   getById,
   insert,
   updateProduct,
+  deleteProduct,
 };
