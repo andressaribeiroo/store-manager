@@ -25,8 +25,16 @@ async function insert(name) {
   return insertId;
 }
 
+async function updateProduct(name, id) {
+  await connection.execute(`UPDATE products
+  SET name = ?
+  WHERE id = ?;`,
+  [name, id]);
+}
+
 module.exports = {
   getAll,
   getById,
   insert,
+  updateProduct,
 };

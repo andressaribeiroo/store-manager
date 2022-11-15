@@ -39,47 +39,6 @@ describe('Testa a camada SalesService', function () {
 
     });
 
-    it('Verifica se é possivel cadastrar uma nova venda na tabela sales', async function () {
-      const salesItems = [
-        {
-          "productId": 1,
-          "quantity": 1
-        },
-        {
-          "productId": 2,
-          "quantity": 5
-        }
-      ];
-
-      const productDub1 = {
-        "id": 1,
-        "name": "Martelo de Thor",
-      };
-
-      const productDub2 = {
-        "id": 2,
-        "name": "Traje de encolhimento",
-      };
-
-      const result= {
-        id: 3,
-        itemsSold: salesItems,
-      };
-
-      const insertId = 3;
-     
-      sinon
-        .stub(productsService, 'getById')
-        .onFirstCall()
-        .resolves(productDub1)
-        .onSecondCall()
-        .resolves(productDub2);
-
-      sinon.stub(salesModel, 'create').resolves(insertId);
-      const response = await salesService.postSale(salesItems);
-      expect(response).to.be.eql(result);
-    });
-
     it('Tenta cadastrar uma nova venda na tabela sales quando os Ids dos produtos não existem', async function () {
       const salesItems = [
         {
